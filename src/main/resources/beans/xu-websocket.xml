@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		">
+	<!--<bean id="messagePublisher" class="com.xiyue.xu.ws.MessagePublisher"/>
+
+	<bean id="myHandshakeInterceptor" class="com.xiyue.xu.ws.HandshakeInterceptor"/>
+
+	<bean id="myHandshakeHandler" class="com.xiyue.xu.ws.HandshakeHandler"/>
+
+	<bean id="myMessageMappingInterceptor" class="com.xiyue.xu.ws.MessageMappingInterceptor"/>
+-->
+
+        <websocket:message-broker application-destination-prefix="/api,/topic">
+	        
+	        <websocket:stomp-endpoint allowed-origins="*" path="/stomp">
+
+	            <websocket:sockjs websocket-enabled="true"/>
+	            
+	        </websocket:stomp-endpoint>
+	       
+	        <websocket:simple-broker prefix="/app"/>
+	        
+        </websocket:message-broker>
+
+</beans>

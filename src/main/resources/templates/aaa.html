@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="房间+${roomid}">}</title>
+
+</head>
+<body>
+<div id="newPerson"></div>
+<input placeholder="请输入聊天内容" id="talkMessage"/><button id="sendMesssage" onclick="sendName()">发送</button>
+<div id="messageList"></div>
+</body>
+<script  th:inline="javascript" >
+    var roomid=[[${roomid}]];
+</script>
+<script th:src="@{/view/sock.min.js}"></script>
+<script th:src="@{/view/stomp.js}"></script>
+<script th:src="@{/view/room.js}"></script>
+</html>
